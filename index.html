@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Conference on Bioethics and AI in Drug Discovery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #000000;
+            --dark-gray: #1a1a1a;
+            --white: #FFFFFF;
+            --light-gray: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, var(--black), var(--dark-gray));
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo-highlight {
+            color: var(--white);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a1a"/><path d="M0 0L100 100" stroke="%23D4AF37" stroke-width="1"/><path d="M100 0L0 100" stroke="%23D4AF37" stroke-width="1"/></svg>');
+            background-size: cover;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .date-venue {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--gold);
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            background: var(--dark-gold);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        /* Themes Section */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .theme-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--gold);
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .theme-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .theme-card p {
+            color: #ccc;
+        }
+        
+        /* Committee Section */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .member-card {
+            background: var(--dark-gray);
+            padding: 20px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--black);
+        }
+        
+        .member-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .member-card p {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .orcid-id {
+            display: inline-block;
+            background: #A6CE39;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        /* Program Section */
+        .program-tabs {
+            background: var(--dark-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .tab-headers {
+            display: flex;
+            background: #2a2a2a;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .tab-header {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #ccc;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .tab-header.active {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .tab-content {
+            padding: 30px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .schedule-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-time {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+        
+        .schedule-speaker {
+            color: #ccc;
+            font-style: italic;
+        }
+        
+        /* Registration Section */
+        .registration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .step-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .pricing-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: var(--dark-gray);
+            padding: 40px 30px;
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: #ccc;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #ccc;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .tab-headers {
+                flex-direction: column;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+        
+        /* Low bandwidth optimizations */
+        .low-bandwidth {
+            /* Styles for low bandwidth mode */
+        }
+        
+        /* Payment form styles */
+        .payment-form {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: var(--white);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .payment-method:hover {
+            background: #444;
+        }
+        
+        .payment-method.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .submit-button {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-button:hover {
+            background: var(--dark-gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">Bio<span class="logo-highlight">AI</span>2025</div>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bioethics & AI in Drug Discovery</h1>
+                <p>International Conference on the Ethical Implications of Artificial Intelligence in Pharmaceutical Research and Development</p>
+                
+                <div class="date-venue">
+                    <p><i class="fas fa-calendar-alt"></i> November 24-26, 2025</p>
+                    <p><i class="fas fa-globe"></i> Fully Virtual Conference</p>
+                    <p><i class="fas fa-clock"></i> Live Sessions Across Multiple Timezones</p>
+                </div>
+                
+                <a href="#registration" class="cta-button">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conference Themes</h2>
+            </div>
+            
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>AI Fundamentals in Drug R&D</h3>
+                    <p>Exploring the three fundamental elements of AI in pharmaceutical research and development, including data integrity, algorithmic transparency, and validation frameworks.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>AI Applications in Drug Discovery</h3>
+                    <p>Examining cutting-edge applications of artificial intelligence in target identification, compound screening, and drug design optimization.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>AI in Pharmaceutical Industry</h3>
+                    <p>Analysis of AI implementation across manufacturing, quality control, supply chain optimization, and post-market surveillance in pharma.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Challenges & Solutions</h3>
+                    <p>Addressing ethical concerns, regulatory hurdles, data privacy issues, and technical limitations in AI-driven drug development with potential solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" style="background: var(--dark-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Scientific Advisory Committee</h2>
+            </div>
+            
+            <div class="committee-grid">
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Elena Rodriguez</h3>
+                    <p>Stanford University, USA</p>
+                    <p>AI Ethics in Biomedical Research</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-1825-0097</a>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Kenji Tanaka</h3>
+                    <p>University of Tokyo, Japan</p>
+                    <p>Computational Drug Design</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0001-5109-3700</a>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Sarah Johnson</h3>
+                    <p>University of Oxford, UK</p>
+                    <p>Bioethics & Regulatory Science</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-9079-593X</a>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Michael Chen</h3>
+                    <p>ETH Zurich, Switzerland</p>
+                    <p>AI in Pharmacokinetics</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0003-3041-5634</a>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Priya Sharma</h3>
+                    <p>National Institute of Health, India</p>
+                    <p>Translational AI Research</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-7356-6879</a>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Dr. Alexander Müller</h3>
+                    <p>Max Planck Institute, Germany</p>
+                    <p>Explainable AI in Medicine</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-2660-0348</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conference Program</h2>
+            </div>
+            
+            <div class="program-tabs">
+                <div class="tab-headers">
+                    <div class="tab-header active" data-day="day1">Day 1 (Nov 24)</div>
+                    <div class="tab-header" data-day="day2">Day 2 (Nov 25)</div>
+                    <div class="tab-header" data-day="day3">Day 3 (Nov 26)</div>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="day1">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Opening Keynote: Ethical Foundations of AI in Drug Discovery</h3>
+                            <p class="schedule-speaker">Dr. Elena Rodriguez, Stanford University</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Fundamental AI Elements in Pharmaceutical R&D</h3>
+                            <p class="schedule-speaker">Dr. Kenji Tanaka, Dr. Michael Chen, Dr. Sarah Johnson</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: Data Integrity & Algorithmic Transparency</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:30 GMT</div>
+                            <h3 class="schedule-title">Poster Session: AI Methodologies in Early Drug Discovery</h3>
+                            <p class="schedule-speaker">Virtual poster presentations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="day2">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Keynote: Transformative Applications of AI in Target Identification</h3>
+                            <p class="schedule-speaker">Dr. Michael Chen, ETH Zurich</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: AI-Driven Compound Screening & Optimization</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Workshop: Implementing Ethical AI Frameworks in Pharma</h3>
+                            <p class="schedule-speaker">Dr. Sarah Johnson, University of Oxford</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Industry Perspectives on AI Integration</h3>
+                            <p class="schedule-speaker">Representatives from Pfizer, Novartis, and Roche</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="day3">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Keynote: Overcoming Challenges in AI-Driven Drug Development</h3>
+                            <p class="schedule-speaker">Dr. Alexander Müller, Max Planck Institute</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: Regulatory Hurdles & Validation Frameworks</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Global Perspectives on AI Ethics in Pharma</h3>
+                            <p class="schedule-speaker">Dr. Priya Sharma, Dr. Kenji Tanaka, Dr. Elena Rodriguez</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:00 GMT</div>
+                            <h3 class="schedule-title">Closing Remarks & Future Directions</h3>
+                            <p class="schedule-speaker">Conference Chairs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" style="background: var(--dark-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration</h2>
+            </div>
+            
+            <div class="registration-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Select Ticket Type</h3>
+                    <p>Choose between academic, industry, or student registration</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Complete Form</h3>
+                    <p>Provide your personal and payment information</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Confirmation</h3>
+                    <p>Receive access details via email immediately</p>
+                </div>
+            </div>
+            
+            <div class="pricing-options">
+                <div class="pricing-card">
+                    <h3>Academic</h3>
+                    <div class="price">$250 <span>+ fees</span></div>
+                    <ul class="pricing-features">
+                        <li>Full conference access</li>
+                        <li>Video recordings</li>
+                        <li>Presentation materials</li>
+                        <li>Networking opportunities</li>
+                        <li>Certificate of attendance</li>
+                    </ul>
+                    <a href="#" class="cta-button">Select</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Industry</h3>
+                    <div class="price">$450 <span>+ fees</span></div>
+                    <ul class="pricing-features">
+                        <li>All Academic features</li>
+                        <li>Industry roundtables</li>
+                        <li>Extended networking</li>
+                        <li>Sponsor showcase access</li>
+                        <li>Priority in Q&A sessions</li>
+                    </ul>
+                    <a href="#" class="cta-button">Select</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Student</h3>
+                    <div class="price">$95 <span>+ fees</span></div>
+                    <ul class="pricing-features">
+                        <li>Full conference access</li>
+                        <li>Video recordings</li>
+                        <li>Student networking events</li>
+                        <li>Career development session</li>
+                        <li>Certificate of attendance</li>
+                    </ul>
+                    <a href="#" class="cta-button">Select</a>
+                </div>
+            </div>
+            
+            <div class="payment-form">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--gold);">Payment Information</h3>
+                
+                <div class="payment-methods">
+                    <div class="payment-method selected">
+                        <i class="fab fa-cc-visa"></i>
+                        <p>Credit Card</p>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <i class="fab fa-cc-paypal"></i>
+                        <p>PayPal</p>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <i class="fas fa-university"></i>
+                        <p>Bank Transfer</p>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" placeholder="John Doe">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" placeholder="MM/YY">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="123">
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-button">Complete Payment & Register</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: info@bioai-conference.org</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>For technical support: support@bioai-conference.org</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About the Conference</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="#">Code of Conduct</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 International Conference on Bioethics and AI in Drug Discovery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality for program section
+        document.querySelectorAll('.tab-header').forEach(header => {
+            header.addEventListener('click', () => {
+                // Remove active class from all headers and panes
+                document.querySelectorAll('.tab-header').forEach(h => h.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked header
+                header.classList.add('active');
+                
+                // Show corresponding pane
+                const day = header.getAttribute('data-day');
+                document.getElementById(day).classList.add('active');
+            });
+        });
+        
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', () => {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                method.classList.add('selected');
+            });
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Low bandwidth detection and optimizations
+        if (navigator.connection && navigator.connection.saveData === true) {
+            document.body.classList.add('low-bandwidth');
+        }
+        
+        if (navigator.connection) {
+            navigator.connection.addEventListener('change', function() {
+                if (navigator.connection.effectiveType.includes('2g') || 
+                    navigator.connection.saveData === true) {
+                    document.body.classList.add('low-bandwidth');
+                } else {
+                    document.body.classList.remove('low-bandwidth');
+                }
+            });
+        }
+    </script>
+</body
