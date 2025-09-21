@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Conference on Bioethics and AI in Drug Discovery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #000000;
+            --dark-gray: #0a0a0a;
+            --white: #FFFFFF;
+            --light-gray: #f5f5f5;
+            --nature-green: #1a2e19;
+            --dark-blue: #0d1b2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(26, 46, 25, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 60%, rgba(26, 46, 25, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(26, 46, 25, 0.1) 0%, transparent 30%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--black);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid var(--gold);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo-highlight {
+            color: var(--white);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0a0a"/><path d="M0 0L100 100" stroke="%23D4AF37" stroke-width="0.5"/><path d="M100 0L0 100" stroke="%23D4AF37" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 75% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 25% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 25%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .date-venue {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--gold);
+            margin: 30px 0;
+            text-align: left;
+            border-right: 1px solid var(--gold);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: var(--dark-gold);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        /* Themes Section */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .theme-card {
+            background: var(--dark-blue);
+            padding: 30px;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--gold);
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+            border-right: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .theme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .theme-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .theme-card p {
+            color: #ccc;
+        }
+        
+        /* Committee Section */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .member-card {
+            background: var(--dark-blue);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .member-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+        
+        .member-card p {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .orcid-id {
+            display: inline-block;
+            background: #A6CE39;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        /* Program Section */
+        .program-tabs {
+            background: var(--dark-blue);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .tab-headers {
+            display: flex;
+            background: #1a1a1a;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .tab-header {
+            padding: 15px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #ccc;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .tab-header.active {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .tab-content {
+            padding: 30px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .schedule-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+        
+        .schedule-time {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+        
+        .schedule-speaker {
+            color: #ccc;
+            font-style: italic;
+        }
+        
+        /* Registration Section */
+        .registration-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .registration-card {
+            background: var(--dark-blue);
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .registration-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 15px;
+        }
+        
+        .registration-card .price {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+        
+        .registration-features {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+        
+        .registration-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #ccc;
+            text-align: left;
+        }
+        
+        .registration-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .registration-features li i {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+        
+        .peer-review-notice {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .peer-review-notice h4 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .repository-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .repository-badge {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: var(--gold);
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Presentation Options */
+        .presentation-options {
+            background: var(--dark-blue);
+            padding: 30px;
+            border-radius: 4px;
+            margin: 40px 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .presentation-options h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .option-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .option-card h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .option-card ul {
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        .option-card ul li {
+            margin-bottom: 8px;
+            color: #ccc;
+            position: relative;
+        }
+        
+        .option-card ul li:before {
+            content: '•';
+            color: var(--gold);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--gold);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column li {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .tab-headers {
+                flex-direction: column;
+            }
+            
+            .registration-types {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Low bandwidth optimizations */
+        .low-bandwidth {
+            /* Styles for low bandwidth mode */
+        }
+        
+        /* Payment form styles */
+        .payment-form {
+            background: var(--dark-blue);
+            padding: 30px;
+            border-radius: 4px;
+            margin-top: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: var(--white);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .payment-method:hover {
+            background: #444;
+        }
+        
+        .payment-method.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .submit-button {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-button:hover {
+            background: var(--dark-gold);
+        }
+        
+        /* Nature background animation */
+        @keyframes morph {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .nature-bg {
+            background: linear-gradient(270deg, #0a0a0a, #1a2e19, #0a0a0a, #1a2e19);
+            background-size: 400% 400%;
+            animation: morph 30s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+    <div class="nature-bg"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">Bio<span class="logo-highlight">AI</span>2025</div>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bioethics & AI in Drug Discovery</h1>
+                <p>International Conference on the Ethical Implications of Artificial Intelligence in Pharmaceutical Research and Development</p>
+                
+                <div class="date-venue">
+                    <p><i class="fas fa-calendar-alt"></i> November 24-26, 2025</p>
+                    <p><i class="fas fa-globe"></i> Fully Virtual Conference</p>
+                    <p><i class="fas fa-clock"></i> Live Sessions Across Multiple Timezones</p>
+                </div>
+                
+                <a href="#registration" class="cta-button">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conference Themes</h2>
+            </div>
+            
+            <div class="themes-grid">
+                <div class="theme-card">
+                    <i class="fas fa-cube"></i>
+                    <h3>AI Fundamentals in Drug R&D</h3>
+                    <p>Exploring the three fundamental elements of AI in pharmaceutical research and development, including data integrity, algorithmic transparency, and validation frameworks.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-pills"></i>
+                    <h3>AI Applications in Drug Discovery</h3>
+                    <p>Examining cutting-edge applications of artificial intelligence in target identification, compound screening, and drug design optimization.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>AI in Pharmaceutical Industry</h3>
+                    <p>Analysis of AI implementation across manufacturing, quality control, supply chain optimization, and post-market surveillance in pharma.</p>
+                </div>
+                
+                <div class="theme-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Challenges & Solutions</h3>
+                    <p>Addressing ethical concerns, regulatory hurdles, data privacy issues, and technical limitations in AI-driven drug development with potential solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" style="background: var(--dark-blue);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Scientific Advisory Committee</h2>
+            </div>
+            
+            <div class="committee-grid">
+                <div class="member-card">
+                    <h3>Prof. Dr. Klaus Müller</h3>
+                    <p>Max Planck Institute for Informatics, Germany</p>
+                    <p>AI Ethics in Biomedical Research</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-1825-0097</a>
+                </div>
+                
+                <div class="member-card">
+                    <h3>Prof. Dr. Anna Schmidt</h3>
+                    <p>Technical University of Munich, Germany</p>
+                    <p>Computational Drug Design</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0001-5109-3700</a>
+                </div>
+                
+                <div class="member-card">
+                    <h3>Prof. Dr. Franz Weber</h3>
+                    <p>University of Vienna, Austria</p>
+                    <p>Bioethics & Regulatory Science</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-9079-593X</a>
+                </div>
+                
+                <div class="member-card">
+                    <h3>Dr. Elena Fischer</h3>
+                    <p>Charité - Berlin Institute of Health, Germany</p>
+                    <p>AI in Pharmacokinetics</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0003-3041-5634</a>
+                </div>
+                
+                <div class="member-card">
+                    <h3>Prof. Dr. Thomas Wagner</h3>
+                    <p>University of Freiburg, Germany</p>
+                    <p>Translational AI Research</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-7356-6879</a>
+                </div>
+                
+                <div class="member-card">
+                    <h3>Prof. Dr. Sophia Richter</h3>
+                    <p>Medical University of Graz, Austria</p>
+                    <p>Explainable AI in Medicine</p>
+                    <a href="#" class="orcid-id">ORCID: 0000-0002-2660-0348</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conference Program</h2>
+            </div>
+            
+            <div class="program-tabs">
+                <div class="tab-headers">
+                    <div class="tab-header active" data-day="day1">Day 1 (Nov 24)</div>
+                    <div class="tab-header" data-day="day2">Day 2 (Nov 25)</div>
+                    <div class="tab-header" data-day="day3">Day 3 (Nov 26)</div>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="day1">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Opening Keynote: Ethical Foundations of AI in Drug Discovery</h3>
+                            <p class="schedule-speaker">Prof. Dr. Klaus Müller, Max Planck Institute</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Fundamental AI Elements in Pharmaceutical R&D</h3>
+                            <p class="schedule-speaker">Prof. Dr. Anna Schmidt, Dr. Elena Fischer, Prof. Dr. Franz Weber</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: Data Integrity & Algorithmic Transparency</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:30 GMT</div>
+                            <h3 class="schedule-title">Poster Session: AI Methodologies in Early Drug Discovery</h3>
+                            <p class="schedule-speaker">Virtual poster presentations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="day2">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Keynote: Transformative Applications of AI in Target Identification</h3>
+                            <p class="schedule-speaker">Dr. Elena Fischer, Charité Berlin</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: AI-Driven Compound Screening & Optimization</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Workshop: Implementing Ethical AI Frameworks in Pharma</h3>
+                            <p class="schedule-speaker">Prof. Dr. Franz Weber, University of Vienna</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Industry Perspectives on AI Integration</h3>
+                            <p class="schedule-speaker">Representatives from Bayer, Boehringer Ingelheim, and Roche</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="day3">
+                        <div class="schedule-item">
+                            <div class="schedule-time">09:00 - 09:30 GMT</div>
+                            <h3 class="schedule-title">Keynote: Overcoming Challenges in AI-Driven Drug Development</h3>
+                            <p class="schedule-speaker">Prof. Dr. Thomas Wagner, University of Freiburg</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">10:00 - 11:30 GMT</div>
+                            <h3 class="schedule-title">Technical Session: Regulatory Hurdles & Validation Frameworks</h3>
+                            <p class="schedule-speaker">Multiple presenters</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">13:00 - 14:30 GMT</div>
+                            <h3 class="schedule-title">Panel: Global Perspectives on AI Ethics in Pharma</h3>
+                            <p class="schedule-speaker">Prof. Dr. Sophia Richter, Prof. Dr. Anna Schmidt, Prof. Dr. Klaus Müller</p>
+                        </div>
+                        
+                        <div class="schedule-item">
+                            <div class="schedule-time">16:00 - 17:00 GMT</div>
+                            <h3 class="schedule-title">Closing Remarks & Future Directions</h3>
+                            <p class="schedule-speaker">Conference Chairs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" style="background: var(--dark-blue);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration</h2>
+            </div>
+            
+            <div class="registration-types">
+                <div class="registration-card">
+                    <h3>Active Participation</h3>
+                    <p>Submit your research for presentation and publication</p>
+                    <div class="price">€350 <span>+ fees</span></div>
+                    
+                    <ul class="registration-features">
+                        <li><i class="fas fa-check-circle"></i> Full conference access</li>
+                        <li><i class="fas fa-check-circle"></i> Submission of research material</li>
+                        <li><i class="fas fa-check-circle"></i> Double-blind peer review process</li>
+                        <li><i class="fas fa-check-circle"></i> Presentation slot (poster or 5-min video)</li>
+                        <li><i class="fas fa-check-circle"></i> Publication in conference proceedings</li>
+                        <li><i class="fas fa-check-circle"></i> Inclusion in WHO repository, OpenDOAR, Figshare, PubMed Central, and ChemRxiv</li>
+                        <li><i class="fas fa-check-circle"></i> Certificate of presentation</li>
+                        <li><i class="fas fa-check-circle"></i> Networking opportunities</li>
+                    </ul>
+                    
+                    <a href="#active-registration" class="cta-button">Submit Abstract</a>
+                </div>
+                
+                <div class="registration-card">
+                    <h3>Passive Participation</h3>
+                    <p>Attend the conference as a participant</p>
+                    <div class="price">€150 <span>+ fees</span></div>
+                    
+                    <ul class="registration-features">
+                        <li><i class="fas fa-check-circle"></i> Full conference access</li>
+                        <li><i class="fas fa-check-circle"></i> Video recordings of all sessions</li>
+                        <li><i class="fas fa-check-circle"></i> Presentation materials</li>
+                        <li><i class="fas fa-check-circle"></i> Networking opportunities</li>
+                        <li><i class="fas fa-check-circle"></i> Certificate of attendance</li>
+                        <li><i class="fas fa-check-circle"></i> Access to exhibition hall</li>
+                    </ul>
+                    
+                    <a href="#passive-registration" class="cta-button">Register Now</a>
+                </div>
+            </div>
+            
+            <div class="peer-review-notice">
+                <h4><i class="fas fa-exclamation-circle"></i> Important Notice for Active Participants</h4>
+                <p>Payment for active participation will only be required after your submission has passed the double-blind peer review process. You will receive notification of acceptance along with payment instructions. Submissions that do not pass peer review can still be presented as part of a non-archived poster session.</p>
+            </div>
+            
+            <div class="repository-list">
+                <div class="repository-badge">WHO Repository</div>
+                <div class="repository-badge">OpenDOAR</div>
+                <div class="repository-badge">Figshare</div>
+                <div class="repository-badge">PubMed Central</div>
+                <div class="repository-badge">ChemRxiv</div>
+            </div>
+            
+            <!-- Presentation Options -->
+            <div class="presentation-options">
+                <h3>Presentation Format Options</h3>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <h4>Poster Presentation</h4>
+                        <ul>
+                            <li>Display your research in virtual poster halls</li>
+                            <li>Interactive Q&A sessions with attendees</li>
+                            <li>Digital poster submission required by Nov 10</li>
+                            <li>Poster should be in PDF format, max 10MB</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="option-card">
+                        <h4>5-Minute Video Presentation</h4>
+                        <ul>
+                            <li>Recorded presentation of your research</li>
+                            <li>Video will be available to all attendees</li>
+                            <li>Live Q&A session following video screening</li>
+                            <li>Video submission required by Nov 10 (MP4, max 200MB)</li>
+                        </ul
